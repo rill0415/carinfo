@@ -181,6 +181,22 @@
             margin-top: 0;
             font-size: 1.8em;
         }
+        
+        .single-chart {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+            max-width: 600px;
+            margin: 30px auto;
+        }
+        
+        .single-chart h3 {
+            margin-top: 0;
+            color: #495057;
+            font-size: 1.4em;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -273,16 +289,9 @@
                 </tbody>
             </table>
             
-            <div class="grid">
-                <div class="chart-container">
-                    <h3>Mileage Impact Analysis</h3>
-                    <canvas id="mileageChart" width="400" height="300"></canvas>
-                </div>
-                
-                <div class="chart-container">
-                    <h3>Dealer vs. Fair Market Pricing</h3>
-                    <canvas id="pricingChart" width="400" height="300"></canvas>
-                </div>
+            <div class="single-chart">
+                <h3>Mileage Impact Analysis</h3>
+                <canvas id="mileageChart" width="400" height="300"></canvas>
             </div>
             
             <h3>Supporting Market Data & Statistics</h3>
@@ -441,44 +450,6 @@
                     y: {
                         beginAtZero: false,
                         min: 7000,
-                        ticks: {
-                            callback: function(value) {
-                                return '$' + value.toLocaleString();
-                            }
-                        }
-                    }
-                }
-            }
-        });
-
-        // Pricing Comparison Chart
-        const ctx4 = document.getElementById('pricingChart').getContext('2d');
-        new Chart(ctx4, {
-            type: 'horizontalBar',
-            data: {
-                labels: ['Your Fair Offer', 'Private Party Range', 'Dealer Cost + Fees', 'Overpriced Amount'],
-                datasets: [{
-                    label: 'Amount ($)',
-                    data: [8000, 4500, 9085, 9085],
-                    backgroundColor: [
-                        '#28a745',
-                        '#17a2b8',
-                        '#dc3545',
-                        '#fd7e14'
-                    ]
-                }]
-            },
-            options: {
-                responsive: true,
-                indexAxis: 'y',
-                plugins: {
-                    legend: {
-                        display: false
-                    }
-                },
-                scales: {
-                    x: {
-                        beginAtZero: true,
                         ticks: {
                             callback: function(value) {
                                 return '$' + value.toLocaleString();
