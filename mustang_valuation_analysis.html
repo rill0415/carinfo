@@ -446,6 +446,14 @@
             },
             options: {
                 responsive: true,
+                plugins: {
+                    legend: {
+                        onClick: function(e, legendItem, legend) {
+                            // Disable legend click functionality
+                            return;
+                        }
+                    }
+                },
                 scales: {
                     y: {
                         beginAtZero: false,
